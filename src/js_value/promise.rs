@@ -86,7 +86,13 @@ where
             }
         }
     }
+
+    // TODO: If Sync+Send Fails for runtime try defining Runtime as being binded to a preexisting mutex here.
 }
+
+unsafe impl <T: for <'de>Deserialize<'de>>Sync for Promise<T>{}
+unsafe impl <T: for <'de>Deserialize<'de>>Send for Promise<T>{}
+
 
 #[cfg(test)]
 mod test {

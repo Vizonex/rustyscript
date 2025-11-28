@@ -250,6 +250,10 @@ impl Module {
     }
 }
 
+unsafe impl Send for Module {}
+unsafe impl Sync for Module {}
+
+
 #[cfg(test)]
 mod test_module {
     use super::*;

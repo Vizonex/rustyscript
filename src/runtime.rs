@@ -1148,6 +1148,11 @@ impl Runtime {
     }
 }
 
+
+unsafe impl Sync for Runtime {}
+unsafe impl Send for Runtime {}
+
+
 impl AsyncBridgeExt for Runtime {
     fn bridge(&self) -> &AsyncBridge {
         &self.tokio
